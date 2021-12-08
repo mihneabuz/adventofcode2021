@@ -1,0 +1,83 @@
+ aaaa
+b    c
+b    c
+ dddd
+e    f
+e    f
+ gggg 
+
+acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab
+
+  0     1   2     3    4     5     6     7     8      9
+abcefg cf acdeg acdfg bcdf abdfg abdefg acf abcdefg abcdfg
+
+
+
+a = {abcdefg}
+b = {abcdefg}
+c = {abcdefg}
+d = {abcdefg}
+e = {abcdefg}
+f = {abcdefg}
+g = {abcdefg}
+
+1 => {ab} = {cf}
+
+a = {cf}
+b = {cf}
+c = {abdeg}
+d = {abdeg}
+e = {abdeg}
+f = {abdeg}
+g = {abdeg}
+
+7 => {dab} = {acf} => {d} = {a}
+
+a = {cf}
+b = {cf}
+c = {bdeg}
+d = {a}
+e = {bdeg}
+f = {bdeg}
+g = {bdeg}
+
+4 => {eafb} = {bcdf} => {ef} = {bd}
+
+a = {cf}
+b = {cf}
+c = {eg}
+d = {a}
+e = {bd}
+f = {bd}
+g = {eg}
+
+2, 3, 5 => {cdfbe}, {gcdfa}, {fbcad}  =>  {acdeg}, {acdfg}, {abdfg}
+           2a, 2b, 3c, 3d, 1e, 3f, 1g => 3a, 1b, 2c, 3d, 1e, 2f, 3g
+
+            {eg}  = {be}
+            {ab}  = {cf} 
+            {cdf} = {adg}
+
+a = {cf}
+b = {cf}
+c = {g}
+d = {a}
+e = {b}
+f = {d}
+g = {e}
+
+0, 6, 9 => {cefabd}, {cdfgeb}, {cagedb} => {abcefg}, {abdefg}, {abcdfg}
+           2a, 3b, 3c, 3d, 3e, 2f, 2g => 3a, 3b, 2c, 2d, 2e, 3f, 3g
+
+           {afg} = {cde}
+           {bcde} = {abfg}
+
+a = {c}
+b = {f}
+c = {g}
+d = {a}
+e = {b}
+f = {d}
+g = {e}
+
+DONE!
