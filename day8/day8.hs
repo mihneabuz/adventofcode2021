@@ -26,7 +26,7 @@ findAsocs xs = complex 6 $ complex 5 $ simple 4 $ simple 7 $ simple 1 $ initial
 
         complex :: Int -> SegmentMap -> SegmentMap
         complex len partialMap = foldr (\(from, to) map -> updateMap from to map) partialMap $ zip (process xs) (process digits) 
-            where process = map (concat . map (take 1)) . groupBy ((==) `on` length) . sortBy (compare `on` length) . group . sort . concat . filter ((==) len . length)
+            where process = map (map head) . groupBy ((==) `on` length) . sortBy (compare `on` length) . group . sort . concat . filter ((==) len . length)
 
         updateMap :: [Char] -> [Char] -> SegmentMap -> SegmentMap
         updateMap from to partialMap = map helper partialMap
@@ -52,4 +52,3 @@ day8 = do
     input <- readFile "input"
     print . solve1 . parse $ input
     print . solve2 . parse $ input
-
