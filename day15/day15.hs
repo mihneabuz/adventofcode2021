@@ -1,7 +1,5 @@
 import Data.Char (digitToInt)
 import Data.Array
-import Data.Function
-import Data.List
 
 import qualified Data.PQueue.Prio.Min as Q
 import qualified Data.Map as Map
