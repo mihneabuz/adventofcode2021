@@ -31,28 +31,28 @@ canReachHome hall h r
     where allEmpty left right = all (== '.') . take (right - left + 1) . drop left $ hall
 
 toRoomMoves :: Board -> [Board]
-toRoomMoves (rooms, hall) = [(rs', h')
-                    | i <- [0..6]
-                    , let a = hall !! i
+toRoomMoves (rooms, hall) = [
+                    (replace i (a : room) rooms,
+                     replace j '.' hall)
+                    | j <- [0..6]
+                    , let a = hall !! j
                     , a /= '.'
-                    , let h' = replace i '.' hall 
-                    , let j = roomIndex ! a
-                    , let r'' = rooms !! j
-                    , all (== a) r''
-                    , canReachHome hall i j
-                    , let r' = a : r''
-                    , let rs' = replace j r' rooms 
+                    , let i = roomIndex ! a
+                    , let room = rooms !! i
+                    , all (== a) room
+                    , canReachHome hall j i
                     ]
 
 toHallMoves :: Board -> [Board]
-toHallMoves (rooms, hall) = [(rs', h')
+toHallMoves (rooms, hall) = [
+                    (replace i (tail room) rooms, 
+                     replace j (head room) hall)
                     | i <- [0..3]
                     , let room = rooms !! i
-                    , not (null room) && not (all (== ("ABCD" !! i)) room)
+                    , not (null room)
+                    , not (all (== ("ABCD" !! i)) room)
                     , j <- [0..6]
                     , canReachHall hall i j
-                    , let h' = replace j (head room) hall 
-                    , let rs' = [if k == i then tail room else rooms !! k | k <- [0..3]]
                     ]
 
 costMove :: Int -> Board -> Int -> Int -> Cost
