@@ -84,8 +84,8 @@ f input ins' = foldl g 0 $ zip input (take 1 ins')
     where 
         g pers (x, ins) = evalOn [x] . reduceOP . (\(_,_,_,z) -> z) . opTreeFromInitial (0, (V 0, V 0, V 0, V pers)) $ ins
 
-day23 :: IO ()
-day23 = do
+day24 :: IO ()
+day24 = do
     input <- readFile "input"
     mapM_ print . map (reduceOP . (\(_,_,_,z) -> z) . opTree) . chunksOf 18 . parse $ input
     mapM_ print . map (reduceOP . (\(_,_,_,z) -> z) . opTreeFromInitial (0, (V 0, V 0, V 0, Input 99))) . chunksOf 18 . parse $ input
