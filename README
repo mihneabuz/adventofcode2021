@@ -1,2 +1,14 @@
 Advent of Code 2021
 Haskell solutions
+
+-- Conclusions --
+Doing Haskell this year was very fun.
+I still have a lot to learn, but I am really liking haskell.
+
+It was a very robust and mostly bug-free experience which was a great
+improvement over last year in python.
+
+Some challanges ware very hard to optimize, especially the 2d map ones
+involving convolutions or searches.
+
+The recursive solutions felt amazing to write and were very fast.
